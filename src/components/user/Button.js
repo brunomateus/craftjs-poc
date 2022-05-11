@@ -3,10 +3,10 @@ import React  from "react";
 import {
   Button as MaterialButton,
   FormControl,
-   FormLabel,
-   RadioGroup,
-   Radio,
-   FormControlLabel} from "@material-ui/core";
+  FormLabel,
+  RadioGroup,
+  Radio,
+  FormControlLabel} from "@material-ui/core";
 import { useNode } from "@craftjs/core";
 
 export const Button = ({size, variant, color, text, ...props}) => {
@@ -29,7 +29,7 @@ export const Button = ({size, variant, color, text, ...props}) => {
 const ButtonSettings = () => {
   const { 
     actions: {setProp},
-     props 
+    props 
   } = useNode((node) => ({
     props: node.data.props
   }));

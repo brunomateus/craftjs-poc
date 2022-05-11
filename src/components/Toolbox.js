@@ -1,6 +1,6 @@
 // components/Toolbox.js
 import React from "react";
-import { Box, Typography, Grid, Button as MaterialButton } from "@material-ui/core";
+import { Box, Typography, Grid, Button as MaterialButton, Tooltip } from "@material-ui/core";
 import { Element, useEditor } from "@craftjs/core";
 import { Container } from "./user/Container";
 import { Card } from "./user/Card";
@@ -20,16 +20,24 @@ export const Toolbox = () => {
           <Typography>Drag to add</Typography>
         </Box>
         <Grid container direction="column" item>
-          <MaterialButton ref={ref=> connectors.create(ref, <Button text="Click me" size="small" />)} variant="contained">Button</MaterialButton>
+          <Tooltip title="Button" placement="right-start">
+            <MaterialButton ref={ref=> connectors.create(ref, <Button text="Click me" size="small" />)} variant="contained">Button</MaterialButton>
+          </Tooltip>
         </Grid>
         <Grid container direction="column" item>
-          <MaterialButton ref={ref=> connectors.create(ref, <Text text="Hi world" />)} variant="contained">Text</MaterialButton>
+          <Tooltip title="Text" placement="right-start">
+            <MaterialButton ref={ref=> connectors.create(ref, <Text text="Hi world" />)} variant="contained">Text</MaterialButton>
+          </Tooltip>
         </Grid>
         <Grid container direction="column" item>
-          <MaterialButton ref={ref=> connectors.create(ref, <Element is={Container} padding={20} canvas />)} variant="contained">Container</MaterialButton>
+          <Tooltip title="Container" placement="right-start">
+            <MaterialButton ref={ref=> connectors.create(ref, <Element is={Container} padding={20} canvas />)} variant="contained">Container</MaterialButton>
+          </Tooltip>
         </Grid>
         <Grid container direction="column" item>
-          <MaterialButton ref={ref=> connectors.create(ref, <Card />)} variant="contained">Card</MaterialButton>
+          <Tooltip title="Card" placement="right-start">
+            <MaterialButton ref={ref=> connectors.create(ref, <Card />)} variant="contained">Card</MaterialButton>
+          </Tooltip>
         </Grid>
       </Grid>
     </Box>
