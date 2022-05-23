@@ -64,6 +64,42 @@ export default function CraftJs() {
                     <Card />
                   </Element>
                 </Element>
+                <Element
+                  is={Container}
+                  padding={20}
+                  background="#CFCCCC"
+                  canvas
+                >
+                  <Text text="Content" fontSize={20} />
+                  <Element
+                    is={Container}
+                    padding={0}
+                    background="#B4B2B2"
+                    direction="row"
+                    canvas
+                  >
+                    <Element
+                      is={Container}
+                      padding={10}
+                      background="#B4B2B2"
+                      canvas
+                    >
+                      <Text text="Content Text" fontSize={20} />
+                      <Card />
+                      <Card />
+                    </Element>
+                    <Element
+                      is={Container}
+                      padding={10}
+                      background="#B4B2B2"
+                      canvas
+                    >
+                      <Text text="Questions" fontSize={20} />
+                      <Card />
+                      <Card />
+                    </Element>
+                  </Element>
+                </Element>
               </Element>
             </Frame>
           </Grid>
