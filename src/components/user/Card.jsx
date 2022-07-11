@@ -13,7 +13,17 @@ export const CardTop = ({ children }) => {
     connectors: { connect },
   } = useNode();
   return (
-    <div ref={connect} className="text-only">
+    <div
+      ref={connect}
+      className="text-only"
+      style={{
+        margin: "0 5px",
+        borderBottom: "1px solid black",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+      }}
+    >
       {children}
     </div>
   );
@@ -31,31 +41,33 @@ export const CardBottom = ({ children }) => {
   const {
     connectors: { connect },
   } = useNode();
-  return <div ref={connect}>{children}</div>;
+  return (
+    <div ref={connect} style={{ margin: "0 5px" }}>
+      {children}
+    </div>
+  );
 };
 
 CardBottom.craft = {
   rules: {
     // Only accept Buttons
-    canMoveIn: (incomingNodes) =>
-      incomingNodes.every((incomingNode) => incomingNode.data.type === Button),
+    canMoveIn: (incomingNodes) => incomingNodes.every((incomingNode) => true),
   },
 };
 
-export const Card = ({ background, padding = 20 }) => {
+export const Card = ({ background = "#FFFFFF", padding = 20 }) => {
   return (
-    <Container background={background} padding={padding}>
+    <Container
+      background={background}
+      padding={padding}
+      direction="column"
+      hasBorder={true}
+    >
       <Element id="text" is={CardTop} canvas>
         <Text text="Title" fontSize={20} />
-        <Text text="Subtitle" fontSize={15} />
       </Element>
       <Element id="buttons" is={CardBottom} canvas>
-        <Button
-          size="small"
-          variant="contained"
-          color="primary"
-          text="Only buttons down here"
-        />
+        <Text text="Subtitle" fontSize={15} />
       </Element>
     </Container>
   );

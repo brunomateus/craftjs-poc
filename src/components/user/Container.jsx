@@ -10,6 +10,9 @@ export const Container = ({
   padding = 0,
   children,
   direction = "row",
+  marginX = "5px",
+  marginY = "5px",
+  hasBorder = false,
   ...props
 }) => {
   const {
@@ -22,7 +25,12 @@ export const Container = ({
       xs
       ref={(ref) => connect(drag(ref))}
       direction={direction}
-      style={{ margin: "5px 0", background, padding: `${padding}px` }}
+      style={{
+        margin: `${marginY} ${marginX}`,
+        background,
+        padding: `${padding}px`,
+        border: hasBorder ? "1px solid black" : null,
+      }}
       {...props}
     >
       {children}
